@@ -1,26 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import ChallengesList from './components/ChallengesList';
+import Challenge from './components/Challenge';
+import NewChallenge from './components/NewChallenge';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path="/" component={ChallengesList} />
+      <Route path="/challenge/:challengeId" component={Challenge} />
+      <Route exact path="/new-challenge" component={NewChallenge} />
+    </Switch>
   );
-}
+};
 
 export default App;
